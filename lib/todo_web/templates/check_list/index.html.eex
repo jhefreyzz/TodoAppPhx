@@ -1,0 +1,30 @@
+<h2>Listing Checklists</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Completed</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for check_list <- @checklists do %>
+    <tr>
+      <td><%= check_list.title %></td>
+      <td><%= check_list.description %></td>
+      <td><%= check_list.completed %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: check_list_path(@conn, :show, check_list), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: check_list_path(@conn, :edit, check_list), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: check_list_path(@conn, :delete, check_list), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Check list", to: check_list_path(@conn, :new) %></span>

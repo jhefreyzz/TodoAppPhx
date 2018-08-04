@@ -1,0 +1,23 @@
+<h2>Show Check list</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @check_list.title %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @check_list.description %>
+  </li>
+
+  <li>
+    <strong>Completed:</strong>
+    <%= @check_list.completed %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: check_list_path(@conn, :edit, @check_list) %></span>
+<span><%= link "Back", to: check_list_path(@conn, :index) %></span>
